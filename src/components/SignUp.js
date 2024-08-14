@@ -29,11 +29,11 @@ function SignUp() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-lightred p-6">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-lightred p-6 -mt-10">
       <h1 className="text-3xl font-bold mb-6">Sign Up</h1>
       <form onSubmit={handleSignUp} className="bg-white p-6 rounded-lg shadow-lg w-full max-w-sm">
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Email</label>
+          <label className="block text-gray-700 mb-2 font-bold">Email</label>
           <input
             type="email"
             value={email}
@@ -43,7 +43,7 @@ function SignUp() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Username</label>
+          <label className="block text-gray-700 mb-2 font-bold">Username</label>
           <input
             type="text"
             value={username}
@@ -53,7 +53,7 @@ function SignUp() {
           />
         </div>
         <div className="mb-4">
-          <label className="block text-gray-700 mb-2">Password</label>
+          <label className="block text-gray-700 mb-2 font-bold">Password</label>
           <input
             type="password"
             value={password}
@@ -66,7 +66,7 @@ function SignUp() {
         <button type="submit" className="bg-red-800 text-white py-2 px-4 rounded-lg hover:bg-red-900 transition duration-300">
           Sign Up
         </button>
-        {error && <p className="text-red-500 mt-4">{error}</p>}
+        
       </form>
     </div>
   );

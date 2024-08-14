@@ -250,7 +250,7 @@ function Ticket() {
           onClick={openPopup}
           className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
-          <span className='text-lg font-extrabold mr-2'>+</span> Create a New Ticket
+          <span className='text-lg font-extrabold mr-2'>+</span>Create a New Ticket
         </button>
       </div>
 
@@ -383,7 +383,9 @@ function Ticket() {
       <h2 className="text-2xl font-bold mb-4 w-full">Existing Tickets</h2>
       {loading ? (
         <p>Loading tickets...</p>
-      ) : error ? (
+      )  : tickets.length === 0 ? (
+        <p className='text-xl'>No tickets available.</p>
+      ): error ? (
         <p>Error loading tickets: {error}</p>
       ) : (
         <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
@@ -406,8 +408,7 @@ function Ticket() {
                 <td className="border px-4 py-2">{ticket.title}</td>
                 <td className="border px-4 py-2">{ticket.description}</td>
                 <td className="border px-4 py-2">{ticket.team}</td>
-                <td
-                    className={`border px-4 py-2 ${
+                <td className={`border px-4 py-2 ${
                       ticket.status === 'open'
                         ? 'text-blue-500 font-bold'
                         : ticket.status === 'in-progress'

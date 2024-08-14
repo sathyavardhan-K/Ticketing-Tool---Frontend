@@ -115,8 +115,6 @@ function Team() {
   };
 
 
-
-
   const validateForm = () => {
     if (!teamData.teamName.trim()) {
       setError('Team name is required');
@@ -245,11 +243,16 @@ function Team() {
       )}
 
       {/* Teams Table */}
+
+
       <div className="w-full">
         <h3 className="text-2xl font-bold mb-4">Teams</h3>
+        
         {loading ? (
           <p>Loading teams...</p>
-        ) : (
+        )  : teams.length === 0 ? (
+          <p className='text-xl'>No teams available.</p>
+        ): (
           <table className="min-w-full bg-white rounded-lg overflow-hidden shadow-lg">
             <thead className="bg-gray-100">
               <tr>
@@ -288,13 +291,6 @@ function Team() {
                           </div>
                       </div>
 
-
-                    {/* <button
-                      className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
-                      onClick={() => handleDelete(team.id)}
-                    >
-                      Delete
-                    </button> */}
                   </td>
                 </tr>
               ))}
